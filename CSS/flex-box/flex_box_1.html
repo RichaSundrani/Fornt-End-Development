@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flexbox-container {
+            display: flex;
+            background-color: teal;
+            height: 500px;
+            justify-content: space-evenly;
+            align-items: flex-end;
+        }
+
+        .flexbox-item {
+            width: 200px;
+            margin: 10px;
+            border: 3px springgreen solid;
+            background-color: wheat;
+        }
+
+        .flexbox-item-1 {
+            min-height: 100px;
+            /* order:3; */
+            align-self: flex-end;
+            /* flex-shrink: 0; */
+            flex-grow: 1;
+            flex-basis: 0px;
+        }
+
+        .flexbox-item-2 {
+            min-height: 200px;
+            /* order:1; */
+            align-self: flex-start;
+        }
+
+        .flexbox-item-3 {
+            min-height: 300px;
+            /* order: 2; */
+            align-self: center;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flexbox-container">
+        <div class="flexbox-item flexbox-item-1">
+            <h1>Box One</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, maiores</p>
+        </div>
+        <div class="flexbox-item flexbox-item-2">
+            <h1>Box Two</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, maiores</p>
+        </div>
+        <div class="flexbox-item flexbox-item-3">
+            <h1>Box Three</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, maiores</p>
+        </div>
+    </div>
+</body>
+
+</html>
