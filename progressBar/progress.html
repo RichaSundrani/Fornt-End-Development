@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress bar</title>
+</head>
+<style>
+    .container{
+        height: 50px;
+        width: 520px;
+        background-color:rgb(58, 56, 56);
+        border-radius: 10px;
+        color: white;
+        padding: 15px;
+    }
+    progress {
+	display:inline-block;
+	width:190px;
+	height:20px;
+	padding:15px 0 0 0;
+	/* margin:0; */
+	background:none;
+	border: 0;
+	border-radius: 15px;
+	/* text-align: left;
+	position:relative;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.8em; */
+}
+progress::-webkit-progress-bar {
+	height:20px;
+	width:150px;
+	margin:0 auto;
+	background-color: #CCC;
+	border-radius: 15px;
+	box-shadow:0px 0px 6px #777 inset;
+}
+progress::-webkit-progress-value {
+	display:inline-block;
+	/* float:left; */
+	height:20px;
+	/* margin:0px -10px 0 0; */
+	background: rgb(6, 188, 243);
+	border-radius: 15px;
+	box-shadow:0px 0px 6px #777 inset;
+}
+
+div>span{
+    color: white;
+}
+</style>
+
+<body>
+   <div class="container">
+    <label>Update progress:</label>
+    <input id="inVal" type="number" value="10" onchange="updateProgress()" />
+    <progress class="progressbar" id="progress" value="10" max="100">
+    </progress>
+    <span id="demo">10%</span>
+   </div>
+
+    <script>
+
+        function updateProgress() {
+            let inVal = document.getElementById("inVal").value;
+            console.log(inVal);
+            let progress = document.getElementById("progress");
+            progress.value = inVal;
+            document.getElementById('demo').innerText = (inVal + "%");
+        }
+    </script>
+</body>
+
+</html>

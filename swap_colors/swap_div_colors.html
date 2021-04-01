@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Color Swap</title>
+<style>
+    #id1 {
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+#id2 {
+    width: 100px;
+  height: 100px;
+    background: yellow;
+}
+#id3 {
+    width: 100px;
+  height: 100px;
+    background: green;
+}
+</style>
+<script>
+    //variable to store the previously selected id
+var selected = null
+function handle(event){
+    
+    if(selected){
+    let previousElement = document.getElementById(selected);
+    let currentElement = document.getElementById(event.id);
+    let previousColor = window.getComputedStyle(previousElement).getPropertyValue("background-color");
+    previousElement.style.backgroundColor = window.getComputedStyle(currentElement).getPropertyValue("background-color");
+    currentElement.style.backgroundColor = previousColor; 
+
+    console.log(selected, previousElement, previousColor);
+    selected = null; 
+    return; 
+    }
+    
+    selected = event.id; 
+}
+</script>
+</head>
+  
+<body>
+  <div id="id1" onclick="handle(this)"></div>
+  <div id="id2" onclick="handle(this)"></div>
+  <div id="id3" onclick="handle(this)"></div>
+</body>
+</html>
+
+
