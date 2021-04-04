@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img name="slide" width="800" height="400">
+</body>
+<script>
+    let images = ["image1.jpeg", "image2.jpeg", "image3.jpeg"];
+    let i = 0;
+
+    function changeImage() {
+        document.slide.src = images[i];
+        if (i < images.length - 1) {
+            i++;
+        } else {
+            i = 0;
+        }
+
+        setTimeout("changeImage()", 1000); 
+    }
+
+    window.onload = changeImage; 
+</script>
+
+</html>

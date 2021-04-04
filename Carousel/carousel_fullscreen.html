@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="carousel_fullscreen.css" />
+    <title>Full Screen slider </title>
+</head>
+<body>
+    <div class="container">
+        <div id="left-arrow" class="arrow"></div>
+           <div id="slider">
+               <div class="slide slide1">
+                   <div class="slide-content">
+                       <span>Image One</span>
+                   </div>
+               </div>
+               <div class="slide slide2">
+                <div class="slide-content">
+                    <span>Image Two</span>
+                </div>
+            </div>
+            <div class="slide slide3">
+                <div class="slide-content">
+                    <span>Image Three</span>
+                </div>
+            </div>
+            <div class="slide slide4">
+                <div class="slide-content">
+                    <span>Image Four</span>
+                </div>
+            </div>
+           </div>
+
+        <div id="right-arrow" class="arrow"></div>
+    </div>
+
+
+<script>
+    let sliderImages = document.querySelectorAll('.slide');
+    let leftArrow = document.querySelector('#left-arrow'); 
+    let rightArrow = document.querySelector('#right-arrow'); 
+    let current = 0; 
+     
+    function reset() {
+        for(let i=0; i<sliderImages.length; i++) {
+            sliderImages[i].style.display = 'none';
+        }
+    }
+
+    function slider() {
+        reset(); 
+        sliderImages[0].style.display = 'block';
+    }
+
+    function slideLeft() {
+        reset(); 
+        sliderImages[current -1].style.display = 'block';
+        current --; 
+    }
+
+    function slideRight() {
+        reset(); 
+        sliderImages[current + 1].style.display = 'block';
+        current ++;
+    }
+    
+    leftArrow.addEventListener('click', function(){
+        if(current === 0 ){
+            current = sliderImages.length; 
+        }
+        slideLeft();
+    }); 
+
+    rightArrow.addEventListener('click', function(){
+        if(current === sliderImages.length -1 ){
+            current =0; 
+        }
+        slideRight();
+    })
+    slider(); 
+
+</script>
+
+</body>
+</html>
